@@ -34,7 +34,7 @@ const MainSection = ({setEmployeeId}) => {
 
     const handleSearch = async (e) => {
         try {
-            const response = await axiosGet(`/${e.target.value}`)
+            const response = await axiosGet(`/search/${e.target.value}`)
             setEmployees(response.data);
         } catch (error) {
             console.log(error.message);

@@ -114,7 +114,7 @@ const searchEmployee = async (req, res) => {
             return res.status(404).send('Employee not found');
         }
 
-        res.json(employee);
+        res.status(200).json(employee);
     } catch (error) {
         res.status(500).send(`Error updating employee: ${error.message}`);
     }

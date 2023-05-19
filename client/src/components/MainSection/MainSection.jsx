@@ -46,7 +46,8 @@ const MainSection = ({setEmployeeId}) => {
     }
 
     const handleEdit = async (id) => {
-        getEmployeeById(id)
+        await getEmployeeById(id)
+
         setEditModal(true)
     }
 

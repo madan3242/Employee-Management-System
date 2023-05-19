@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
-import { axiosPut } from '../../services/axiosServices'
+import React, { useEffect, useState } from 'react'
+import { axiosGet, axiosPut } from '../../services/axiosServices'
 
 
 const EditDetailsModal = ({ empById, setEditModal }) => {
     const { firstname, lastname, email, phone, job, dateofjoining, image } = empById;
-    console.log(empById);
+
 
     const [loading, setLoading] = useState(false);
 
     const [employee, setEmployee] = useState({
-        firstname: firstname, lastname: '', image: '', email: '', phone: '', job: '', dateofjoining: ''
+        firstname: firstname, 
+        lastname: lastname, 
+        image: image, 
+        email: email, 
+        phone: phone, 
+        job: job, 
+        dateofjoining: dateofjoining
     })
 
     const handleChange = (e) => {
@@ -40,7 +46,7 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
 
         setLoading(true)
         try {
-            const response = await axiosPut(`employees/${empById}`, employee);
+            const response = await axiosPut(`/employee/${empById._id}`, employee);
             setLoading(false)
             setEditModal(false)
             console.log(response);
@@ -65,7 +71,6 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
                                 type="text" 
                                 name="firstname"
                                 required 
-                                defaultValue={firstname}
                                 onChange={handleChange}
                                 value={employee.firstname}
                             />
@@ -76,7 +81,6 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
                                 type="text" 
                                 name="lastname"
                                 required 
-                                defaultValue={lastname}
                                 onChange={handleChange}
                                 value={employee.lastname}
                             />
@@ -87,10 +91,8 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
                             <input 
                                 type="file" 
                                 name="image"
-                                required 
-                                defaultValue={image}
                                 onChange={imageChange}
-                                value={employee.image}
+                                // value={employee.image}
                             />
                         </div>
                     <div className="input-container">
@@ -100,7 +102,6 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
                                 type="email" 
                                 name="email"
                                 required 
-                                defaultValue={email}
                                 onChange={handleChange}
                                 value={employee.email}
                             />
@@ -111,7 +112,6 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
                                 type="text" 
                                 name="phone"
                                 required 
-                                defaultValue={phone}
                                 onChange={handleChange}
                                 value={employee.phone}
                             />
@@ -124,7 +124,6 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
                             type="text" 
                             name="job"
                             required 
-                            defaultValue={job}
                             onChange={handleChange}
                             value={employee.job}
                         />
@@ -135,7 +134,6 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
                             type="date" 
                             name="dateofjoining"
                             required 
-                            defaultValue={dateofjoining}
                             onChange={handleChange}
                             value={employee.dateofjoining}
                         />

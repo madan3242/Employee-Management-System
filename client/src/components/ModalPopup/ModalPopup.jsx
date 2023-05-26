@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { axiosPost } from '../../services/axiosServices';
-import './ModelPopup.css'
+import './ModalPopup.css'
 
-const ModelPopup = ({ setShowModal }) => {
+const ModalPopup = ({ setShowModal }) => {
     const [loading, setLoading] = useState(false);
 
     const [employee, setEmployee] = useState({
@@ -141,4 +141,4 @@ const ModelPopup = ({ setShowModal }) => {
   )
 }
 
-export default ModelPopup
+export default ModalPopup

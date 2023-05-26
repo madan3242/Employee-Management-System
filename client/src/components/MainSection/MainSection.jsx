@@ -4,8 +4,8 @@ import { IoMdAdd } from 'react-icons/io'
 import { axiosGet } from '../../services/axiosServices'
 import Card from './components/Card';
 import './MainSection.css'
-import ModelPopup from '../ModelPopup/ModelPopup';
-import EditDetailsModal from '../ModelPopup/EditDetailsModal';
+import ModalPopup from '../ModalPopup/ModalPopup';
+import EditDetailsModal from '../ModalPopup/EditDetailsModal';
 
 const MainSection = ({setEmployeeId}) => {
     const [showModal, setShowModal] = useState(false);
@@ -61,7 +61,7 @@ const MainSection = ({setEmployeeId}) => {
 
   return (
     <>
-        { showModal && <ModelPopup setShowModal={setShowModal} /> }
+        { showModal && <ModalPopup setShowModal={setShowModal} /> }
         { editModal && <EditDetailsModal setEditModal={setEditModal} empById={empById} />}
         <main className="mainContainer">
             <div className="mainWrapper">

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { axiosGet, axiosPut } from '../../services/axiosServices'
-
+import React, { useState } from 'react'
+import { axiosPut } from '../../services/axiosServices'
+import { GrClose } from 'react-icons/gr'
 
 const EditDetailsModal = ({ empById, setEditModal }) => {
     const { firstname, lastname, email, phone, job, dateofjoining, image } = empById;
-
 
     const [loading, setLoading] = useState(false);
 
@@ -62,6 +61,7 @@ const EditDetailsModal = ({ empById, setEditModal }) => {
             <div className="modalBox">
                 <div className="modalHeader">
                     <h2>Edit Employee Details</h2>
+                    <GrClose size={20} className='close' onClick={() => setEditModal(false)}/>
                 </div>
                 <div className="modalInner">
                     <div className="input-container">

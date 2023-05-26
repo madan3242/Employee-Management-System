@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { axiosPost } from '../../services/axiosServices';
 import './ModalPopup.css'
+import { GrClose } from 'react-icons/gr'
 
 const ModalPopup = ({ setShowModal }) => {
     const [loading, setLoading] = useState(false);
@@ -53,6 +54,7 @@ const ModalPopup = ({ setShowModal }) => {
             <div className="modalBox">
                 <div className="modalHeader">
                     <h2>New Employee Details</h2>
+                    <GrClose size={20} className='close' onClick={() => setShowModal(false)}/>
                 </div>
                 <div className="modalInner">
                     <div className="input-container">

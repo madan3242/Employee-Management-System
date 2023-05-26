@@ -27,9 +27,23 @@
     gap: 20px;
 }
 
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.modalHeader .close {
+    cursor: pointer;
+}
+
 .modalHeader, .modalFooter {
     background-color: #fcfbfe;
-    height: 5rem;
+    height: 2rem;
+}
+
+.modalFooter {
     display: grid;
     place-items: center;
 }
